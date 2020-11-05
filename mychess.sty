@@ -1,0 +1,216 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mychess}[2020/10/24 1.0 Typeset chess problems diagrams]
+\RequirePackage{ifthen}
+
+% Simplify programming by ignoring white spaces and set our private
+% delimitors to alignment tab to catch errors more easily.
+% If you want a true white space, use ~.
+\catcode`\ =9
+\catcode`\^^M=9
+\catcode`\^^I=9
+\catcode`\;=4
+\catcode`\:=4
+\catcode`\~=10
+
+% A simple for loop
+\newcommand \FOR[5][1]
+{
+  \setcounter{#2}{#3}
+  \ifthenelse
+    {#4}
+    {#5\addtocounter{#2}{#1}\FOR[#1]{#2}{\value{#2}}{#4}{#5}}
+    {}
+}
+
+% A CASE control structure
+\newcommand \CASE[1]
+{
+  \long\def \next ##1 #1 ##2 : ##3 ; ##4 \END { ##3 }
+  \next
+}
+
+% The chess board is defined by 64 macros \mc@a1, ..., \mc@h8
+% that expand to a piece name (KQRBNPkqrbnp) or an empty square (*).
+\newcounter {mc@x}
+\newcounter {mc@y}
+\newcommand \mc@get[1]
+{
+  \edef #1{\csname mc@\alph{mc@x}\arabic{mc@y} \endcsname}
+}
+\newcommand \mc@set[1]
+{
+  \expandafter\xdef \csname mc@\alph{mc@x}\arabic{mc@y} \endcsname
+  {#1}
+}
+
+\newcommand \mc@empty{*}
+\newcommand \mc@clearboard
+{
+  \FOR {mc@x}{1}{\value{mc@x} < 9} {
+    \FOR {mc@y}{1}{\value{mc@y} < 9} {
+      \mc@set{\mc@empty} } }
+}
+\mc@clearboard
+
+% Check for chess board square color
+\newboolean{mc@iswhite}
+\newcommand \mc@color
+{
+  \ifthenelse
+    { \( \isodd{\value{mc@x}} \AND \NOT\isodd{\value{mc@y}} \) \OR
+      \( \NOT\isodd{\value{mc@x}} \AND \isodd{\value{mc@y}} \) }
+    { \setboolean{mc@iswhite}{true} }
+    { \setboolean{mc@iswhite}{false} }
+}
+
+% Parse a FEN string and set the chess board accordingly
+\newcommand \mc@fen[1]
+{
+  \mc@clearboard
+  \setcounter{mc@x}{1}
+  \setcounter{mc@y}{8}
+  \mc@parse@fen #1.
+  \ignorespaces
+}
+
+\newcommand \mc@parse@fen[1]
+{
+  \ifthenelse
+    { \value{mc@x} > 9 \OR \value{mc@y} < 0 \OR \equal{#1}{.} }
+    { \relax }
+    { \CASE #1
+      KQRBNPkqrbnp :
+        \mc@set{#1}
+        \stepcounter{mc@x} ;
+      12345678 :
+        \addtocounter{mc@x}{#1} ;
+      / :
+        \addtocounter{mc@y}{-1}
+        \setcounter{mc@x}{1} ;
+      \default : ;
+      \END
+      \mc@parse@fen }
+}
+
+% Chess font
+\font \mc@font=fselch14
+\newdimen \mc@swidth
+\mc@swidth=\fontdimen\tw@\mc@font
+
+\chardef \mc@WP=0 \chardef \mc@BP=18
+\chardef \mc@WN=1 \chardef \mc@BN=19
+\chardef \mc@WB=2 \chardef \mc@BB=20
+\chardef \mc@WR=3 \chardef \mc@BR=21
+\chardef \mc@WQ=4 \chardef \mc@BQ=22
+\chardef \mc@WK=5 \chardef \mc@BK=23
+\chardef \mc@Wp=12 \chardef \mc@Bp=30
+\chardef \mc@Wn=13 \chardef \mc@Bn=31
+\chardef \mc@Wb=14 \chardef \mc@Bb=32
+\chardef \mc@Wr=15 \chardef \mc@Br=33
+\chardef \mc@Wq=16 \chardef \mc@Bq=34
+\chardef \mc@Wk=17 \chardef \mc@Bk=35
+\chardef \mc@Bempty=144
+
+% Print a chess board
+\newcommand \mc@board
+{
+  \begingroup
+    \mc@font
+    \setlength{\fboxsep}{0pt}
+    \setlength{\fboxrule}{0.6pt}
+    \fbox { \vbox {
+      \FOR [-1]{mc@y}{8}{\value{mc@y} > 0} {
+        \hbox {
+          \hbox to 0pt {\vbox to \mc@swidth {}}
+          \FOR {mc@x}{1}{\value{mc@x} < 9} {
+            \mc@color
+            \mc@get\mc@square
+            \ifthenelse
+              { \boolean{mc@iswhite} }
+              { \ifthenelse
+                  { \equal{\mc@square}{\mc@empty} }
+                  { \hspace*{\mc@swidth} }
+                  { \hbox to \mc@swidth {
+                      \csname mc@W\mc@square \endcsname } } }
+              { \ifthenelse
+                  { \equal{\mc@square}{\mc@empty} }
+                  { \mc@Bempty }
+                  { \hbox to \mc@swidth {
+                      \csname mc@B\mc@square \endcsname} } } } } } } }
+  \endgroup
+}
+
+% build a framed chess board box
+\newcommand \mc@fboard
+{
+  \hbox {
+    \setlength{\fboxsep}{2pt}
+    \setlength{\fboxrule}{1.2pt}
+    \fbox{\mc@board} }
+}
+
+% Chess diagram environment
+\newbox \mc@diagbox
+\newcounter{mc@diagnum}
+\newtoks \mc@authortoks \mc@authortoks={\relax}
+\newtoks \mc@sourcetoks \mc@sourcetoks={\relax}
+\newtoks \mc@stiptoks \mc@stiptoks={\relax}
+\newtoks \mc@commenttoks \mc@commenttoks={\relax}
+\newboolean{mc@iscomment}
+
+\newcommand \mc@authorfont { \normalfont\scriptsize\bfseries }
+\newcommand \mc@sourcefont { \normalfont\scriptsize\slshape }
+\newcommand \mc@stipfont { \normalfont\scriptsize }
+\newdimen \mc@baselineskip \mc@baselineskip=10pt
+
+\newdimen \diagramwidth
+\setbox \mc@diagbox\mc@fboard
+\diagramwidth=\wd\mc@diagbox
+
+\newcommand \diagram[1]
+{
+  \hbox {
+    \stepcounter{mc@diagnum}
+    \def \author ##1
+      { \mc@authortoks={##1} \ignorespaces }
+    \def \source ##1
+      { \mc@sourcetoks={##1} \ignorespaces }
+    \def \stip ##1
+      { \mc@stiptoks={##1} \ignorespaces }
+    \def \comment ##1
+      { \mc@commenttoks={##1} \setboolean{mc@iscomment}{true} \ignorespaces }
+    \setboolean{mc@iscomment}{false}
+    \let\fen=\mc@fen
+    \mc@clearboard
+    \ignorespaces
+    #1
+    \setbox \mc@diagbox \mc@fboard
+    \hsize=\diagramwidth
+    \parindent=0pt
+    \hbox to \hsize {
+      \vtop {
+        \baselineskip=\mc@baselineskip
+        \vbox {
+          \hbox to \hsize {\mc@authorfont
+            \hss\arabic{mc@diagnum}.~\the\mc@authortoks\hss}
+          \hbox to \hsize {\mc@sourcefont
+            \hss\the\mc@sourcetoks\hss}
+          \ifthenelse
+            {\boolean{mc@iscomment}}
+            {\hbox to \hsize {\mc@sourcefont
+              \hss\the\mc@commenttoks\hss}}
+            {}}
+        \vskip 4pt
+        \box \mc@diagbox
+        \vskip 2pt
+        \vbox {\mc@stipfont\the\mc@stiptoks} } } }
+}
+
+% Restore catcodes
+\catcode`\ =10
+\catcode`\^^M=10
+\catcode`\^^I=5
+\catcode`\;=12
+\catcode`\:=12
+\catcode`\~=13
+

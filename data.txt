@@ -1,0 +1,59 @@
+% Problems are separated by blank lines.
+% Lines starting with % are ignored.
+
+\author{M. Caillaud}
+\source{Europe Échecs, 1981, 1\up{er}\kern1pt--\kern1pt 2\up{e} prix}
+\fen{/1p1p3n/6P/5P1P/4PrBp/3PprbK/1P1PRR1N/2BN2kq}
+\stip{\#1}
+
+\author{M. Caillaud}
+\source{Europe Échecs, 1985, 2\up{e} prix}
+\fen{rnbqkbnr/1pppP/Q2B3R/7P/2P1PN1R/2P3K/B1P1P/}
+\stip{Position après le 27\up{e} coup blanc. Liste des coups ?}
+
+\author{L. Ceriani}
+\source{L'Italia Scacchistica, 1943}
+\comment{``La Donna è mobile?\dots\ Eppur si muove!''}
+\fen{2b1q1NR/1ppppKbr/5ppp///P1P/RP1P/1kB}
+\stip{Premier coup de la dame noire ?}
+
+\author{L. Ceriani}
+\source{La Genesi delle Pozitioni, 1961}
+\fen{7n/1p3p1p/4pPb/5p//1PPPP1PP/RprnK1kB/N1bRQNqr}
+\stip{Histoire de la tour a2 ?}
+
+\author{G. Kasparian}
+\source{Chakhmaty v. SSSR, 1948, 2\up{e} prix}
+\fen{2k/pNpn/p/2P/7b/1K/P5B}
+\stip{+}
+
+\author{G. Kasparian}
+\source{Mémorial Tchigorine, 1949, 2\up{e} prix}
+\fen{5b/p4B/5B/1bN//P3r/4k1K}
+\stip{=}
+
+\author{J. Kricheli}
+\source{Spartakiad, 1975, 1\up{er} prix}
+\fen{5B/rb5n/5pr/7p/1P/k1P1R/pN/N1K2n}
+\stip{\#17}
+
+\author{T. Volet}
+\source{Rex Multiplex, 1983, 1\up{er} prix}
+\fen{n4K/b1pprppp/1p2p/2p/N1P3P/BkP1P/1P2PPP/3N1BR}
+\stip{=}
+
+\author{T. Volet}
+\source{Diagrammes, 1994}
+\fen{rRKBqb/kp2pPp/1Rp/1p5P//pP4P/b1PPPP/1B}
+\stip{\#2}
+
+\author{T. Volet}
+\source{Die Schwalbe, 1980, 1\up{er} prix}
+\fen{5KQN/nprqrRBN/p1pppRBb/5ppp//7k/4n1b/}
+\stip{Cases et ordre des captures ?}
+
+\author{P. Wassong}
+\source{Europe Échecs, 1994}
+\fen{1b5B/2pp2p/N1p1p/2K/PP3p/QPk1P/R1PNrP/nRqrB}
+\stip{\#1}
+
