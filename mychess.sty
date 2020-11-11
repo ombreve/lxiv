@@ -153,13 +153,14 @@
 \newbox \mc@diagbox
 \newcounter{mc@diagnum}
 \newtoks \mc@authortoks \mc@authortoks={\relax}
-\newtoks \mc@sourcetoks \mc@sourcetoks={\relax}
+\newtoks \mc@yeartoks \mc@yeartoks={\relax}
 \newtoks \mc@stiptoks \mc@stiptoks={\relax}
 \newtoks \mc@commenttoks \mc@commenttoks={\relax}
 \newboolean{mc@iscomment}
 
 \newcommand \mc@authorfont { \normalfont\scriptsize\bfseries }
-\newcommand \mc@sourcefont { \normalfont\scriptsize\slshape }
+\newcommand \mc@yearfont { \normalfont\scriptsize }
+\newcommand \mc@commentfont { \normalfont\scriptsize\slshape }
 \newcommand \mc@stipfont { \normalfont\scriptsize }
 \newdimen \mc@baselineskip \mc@baselineskip=10pt
 
@@ -173,8 +174,8 @@
     \stepcounter{mc@diagnum}
     \def \author ##1
       { \mc@authortoks={##1} \ignorespaces }
-    \def \source ##1
-      { \mc@sourcetoks={##1} \ignorespaces }
+    \def \year ##1
+      { \mc@yeartoks={##1} \ignorespaces }
     \def \stip ##1
       { \mc@stiptoks={##1} \ignorespaces }
     \def \comment ##1
@@ -193,11 +194,11 @@
         \vbox {
           \hbox to \hsize {\mc@authorfont
             \hss\arabic{mc@diagnum}.~\the\mc@authortoks\hss}
-          \hbox to \hsize {\mc@sourcefont
-            \hss\the\mc@sourcetoks\hss}
+          \hbox to \hsize {\mc@yearfont
+            \hss\the\mc@yeartoks\hss}
           \ifthenelse
             {\boolean{mc@iscomment}}
-            {\hbox to \hsize {\mc@sourcefont
+            {\hbox to \hsize {\mc@commentfont
               \hss\the\mc@commenttoks\hss}}
             {}}
         \vskip 4pt
