@@ -69,7 +69,7 @@
 
 \author{Loyd}
 \year{1903}
-\fen{4r1b/1p4B/pN2pR/RB2K/1P2N2p/2p3b/n2P1p1r/5K1n}
+\fen{4r1b/1p4B/pN2pR/RB2k/1P2N2p/2p3b/n2P1p1r/5K1n}
 \stip{\#3}
 
 \author{Siers}

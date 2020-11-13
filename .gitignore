@@ -2,6 +2,7 @@
 *.aux
 *.fls
 *.toc
+*.out
 *.fdb_latexmk
 *.pdf
 data.tex

@@ -7,8 +7,6 @@
 
 \usepackage{fontspec}
 \usepackage{microtype}
-\usepackage{ifthen}
-
 \usepackage{mychess}
 
 \makeatletter
@@ -19,69 +17,21 @@
     \@author
   \end{center}%
   \par \vskip .5em}
+\makeatother
 
 \renewenvironment{abstract}%
   {\quotation\noindent\ignorespaces}%
   {\endquotation}
 
-\makeatother
-
 \newcommand\myinput[1]{\InputIfFileExists{#1}{}{\typeout{No file #1.}}}
-
 \newbox \diagone
 \newbox \diagtwo
-%\newbox \diagthree
-
-%\newtoks \diagtoks
-%\newcounter{boards} % number of boards already built for one line (0-3)
-%\newcounter{lines} % number of board lines in page (0-3)
-%
-%\def \SEP {%
-%  \ifcase \value{boards}
-%    \let\par\lastdiag
-%    \diagtoks={\setbox\diagone=\hbox\bgroup\diagram}%
-%  \or
-%    \enddiagram
-%    \egroup
-%    \diagtoks={\setbox\diagtwo=\hbox\bgroup\diagram}%
-%  \or
-%    \enddiagram
-%    \egroup
-%    \diagtoks={\setbox\diagthree=\hbox\bgroup\diagram}%
-%  \or
-%    \enddiagram
-%    \egroup
-%    \hbox to \hsize{\box\diagone\hfil\box\diagtwo\hfil\box\diagthree}%
-%    \stepcounter{lines}%
-%    \ifthenelse{\value{lines}=3}%
-%      {\setcounter{lines}{0}\vfil\penalty-200}%
-%      {\bigskip \bigskip}%
-%  \fi
-%  \stepcounter{boards}
-%  \ifthenelse{\value{boards}>3}%
-%    {\setcounter{boards}{0}\SEP}%
-%    {\the\diagtoks}%
-%}
-%
-%\def \lastdiag{%
-%  \enddiagram
-%  \egroup
-%  \ifcase \value{boards}
-%  \or
-%  \or
-%    \hbox to \hsize{\hfil\box\diagone\hfil}%
-%  \or
-%    \hbox to \hsize{\hfil\box\diagone\hfil\box\diagtwo\hfil}%
-%  \fi
-%  \let\par\endgraf \par
-%}
 
 \usepackage[unicode,hyperfootnotes=false,hidelinks]{hyperref}
 \hypersetup{%
   pdftitle={64},
   pdfauthor={Lionel Vidal}
 }
-\usepackage{bookmark}
 \title{64}
 \author{Lionel \bsc{V\kern-1pt idal}}
 
@@ -91,7 +41,6 @@
   Mes compositions échiquéennes préférées, aléatoirement mélangées pour
   forcer le plaisir de la redécouverte…
 \end{abstract}
-\bigskip
-\bigskip
+\bigskip \bigskip
 \myinput{data}
 \end{document}
