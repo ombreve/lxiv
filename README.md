@@ -1,4 +1,4 @@
-# 64 compositions échiquéennes
+# 64, ou mes compositions échiquéennes préférées
 
 Ce document peut en principe se lire directement sur mon
 [site WEB](https://ombreve.github.io).
