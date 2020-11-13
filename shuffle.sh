@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Shuffle paragraphs separated by blank lines.
 # Lines stating with % are ignored.
-# Return latex code for 3x3 diagram grid per page.
+# Return latex code for 3 diagrams per line.
 
 sed '
 # Delete comment lines
