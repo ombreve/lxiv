@@ -157,6 +157,8 @@
 \newtoks \mc@stiptoks \mc@stiptoks={\relax}
 \newtoks \mc@commenttoks \mc@commenttoks={\relax}
 \newboolean{mc@iscomment}
+\newtoks \mc@soltoks \mc@soltoks={\relax}
+\newboolean{mc@issol}
 
 \newcommand \mc@authorfont { \normalfont\scriptsize\bfseries }
 \newcommand \mc@yearfont { \normalfont\scriptsize }
@@ -180,11 +182,19 @@
       { \mc@stiptoks={##1} \ignorespaces }
     \def \comment ##1
       { \mc@commenttoks={##1} \setboolean{mc@iscomment}{true} \ignorespaces }
+    \long\def \sol ##1
+      { \mc@soltoks={##1} \setboolean{mc@issol}{true} \ignorespaces }
     \setboolean{mc@iscomment}{false}
+    \setboolean{mc@issol}{false}
     \let\fen=\mc@fen
     \mc@clearboard
     \ignorespaces
     #1
+    \ifthenelse
+      {\boolean{mc@issol}}
+      {\expandafter\xdef\csname mc@sol\arabic{mc@diagnum}\endcsname
+        { \the\mc@soltoks }}
+      {}
     \setbox \mc@diagbox \mc@fboard
     \hsize=\diagramwidth
     \parindent=0pt
@@ -205,6 +215,19 @@
         \box \mc@diagbox
         \vskip 2pt
         \vbox {\mc@stipfont\the\mc@stiptoks} } } }
+}
+
+\newcommand\printsolutions
+{
+  \stepcounter{mc@diagnum}
+  \FOR {mc@x}{1}{\value{mc@x} < \value{mc@diagnum}} {
+    \expandafter\ifx\csname mc@sol\arabic{mc@x}\endcsname\relax
+    \else
+      \noindent\makebox[0pt][r]{\bfseries\arabic{mc@x}.\hspace{1em}}
+      \csname mc@sol\arabic{mc@x}\endcsname
+      \par\medskip
+    \fi
+  }
 }
 
 % Restore catcodes

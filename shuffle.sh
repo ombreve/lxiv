@@ -12,17 +12,15 @@ sed '
     $!d
   }
   x
-  s/\n//g' |
-sed '
-# Delete remaining blank lines
-  /^[ \t]*$/d' |
+  /^[ \t]*$/d
+  s/\n/@@@/g' |
 sort -R | # Shuffle lines
 awk '
-  NR%3 == 1 { printf "\\setbox\\diagone=\\diagram{%%\n%s}%%\n", $0 }
-  NR%3 == 2 { printf "\\setbox\\diagtwo=\\diagram{%%\n%s}%%\n", $0 }
+  NR%3 == 1 { printf "\\setbox\\diagone=\\diagram{%%%s}%%\n", $0 }
+  NR%3 == 2 { printf "\\setbox\\diagtwo=\\diagram{%%%s}%%\n", $0 }
   NR%3 == 0 { print "\\hbox to \\hsize{%"
               print "\\box\\diagone\\hfil\\box\\diagtwo\\hfil"
-              printf "\\diagram{%%\n%s}}%%\n", $0
+              printf "\\diagram{%%%s}}%%\n", $0
               print "\\bigskip\\bigskip" }
   END { if (NR%3 == 1) {
           print "\\hbox to \\hsize{%"
@@ -33,4 +31,8 @@ awk '
           print "\\box\\diagone\\hfil\\box\\diagtwo\\hfil"
           print "\\hbox to \\diagramwidth{\\hfil}}%"
         }
-      }'
+      } ' |
+sed '
+# Restore newlines
+  s/@@@/\
+/g '

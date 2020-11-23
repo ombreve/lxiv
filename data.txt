@@ -1,4 +1,4 @@
-% Problems are separated by blank lines.
+% Problems are separated up and down by blank lines.
 % Lines starting with % are ignored.
 
 \author{Caillaud}
@@ -13,9 +13,14 @@
 
 \author{Ceriani}
 \year{1943}
-\comment{``La Donna è mobile?\dots\ Eppur si muove!''}
+\comment{``La Donna è mobile?… Eppur si muove!''}
 \fen{2b1q1NR/1ppppKbr/5ppp///P1P/RP1P/1kB}
 \stip{Premier coup de la dame noire ?}
+\sol{%
+La dame noire est issue de la promotion en a1 du pion noir a7
+et son premier coup fut a1-a2, la dame noire originelle n'ayant pas
+bougé, capturée en d8 par un cavalier blanc.\par\noindent
+Rétro-jeu : 1... Qd8xQe8 2.Qf8-e8 Kc2-b1 3.Qe8-f8 Bf8xNg7 4.Nf5-g7 g7-g6 ...}
 
 \author{Ceriani}
 \year{1961}
@@ -46,11 +51,6 @@
 \year{1975}
 \fen{5B/rb5n/5pr/7p/1P/k1P1R/pN/N1K2n}
 \stip{\#17}
-
-\author{Kubbel}
-\year{1928}
-\fen{3R/Kp5b/1R/2k3r/2P2N//1N3B/n1BBr1n}
-\stip{\#3}
 
 \author{Lewandowski}
 \year{1986}

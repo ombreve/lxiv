@@ -17,6 +17,9 @@
     \@author
   \end{center}%
   \par \vskip .5em}
+
+\def\cleardoublepage{\clearpage \ifodd\c@page\else
+  \hbox{}\thispagestyle{empty}\newpage\fi}
 \makeatother
 
 \renewenvironment{abstract}%
@@ -43,4 +46,9 @@
 \end{abstract}
 \bigskip \bigskip
 \myinput{data}
+\cleardoublepage
+\begin{center}\bfseries
+  Quelques indices ou solutions partielles
+\end{center}
+\printsolutions
 \end{document}
