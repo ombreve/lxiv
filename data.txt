@@ -1,5 +1,10 @@
-% Problems are separated up and down by blank lines.
+% Problems are separated by blank lines.
 % Lines starting with % are ignored.
+
+\author{Baibikov}
+\year{2008}
+\fen{1k/1P1p2p/QP2p/rnK/pRnP2PP/1BrpP2p/N1P1P1p/2N}
+\stip{Déconstruire la position.}
 
 \author{Caillaud}
 \year{1981}
@@ -10,62 +15,64 @@
 \year{1985}
 \fen{rnbqkbnr/1pppP/Q2B3R/7P/2P1PN1R/2P3K/B1P1P/}
 \stip{Position après le 27\up{e} coup blanc. Liste des coups ?}
+\sol{%
+La partie est entièrement déterminée et réalise les quatre promotions
+Ceriani-Froklin (une pièce promue est capturée).\par\noindent
+1.f4 h5 2.f5 h4 3.f6 h3 4.fxe7 hxg2 5.h4 g5 6.h5 g4 7.Rh4 g3
+8.Nh3 \textbf{g1=B} 9.Bg2 Be3 10.Bc6 g2 11.\textbf{dxe3} \textbf{g1=R}
+12.Kf2 Rg3 13.e4 Rb3 14.\textbf{axb3} f5 15.Ra6 f4 16.Ba4 f3 17.Kg3 f2
+18.Rh6 \textbf{f1=Q} 19.Qd6 Qf7 20.Bf4 Qc4 21.\textbf{bxc4} a5 22.Bb3 a4
+23.Qa6 a3 24.Bd6 a2 25.Nf4 \textbf{axb1=N} 26.Ba2 Nc3 27.\textbf{bxc3}}
+
+\author{Caillaud}
+\comment{Tarzan of the Apes}
+\year{1999}
+\fen{/4pp/NPPp1pP/1ppK/5PrP/4PkbB/1PP1rB1n/1b1nRRQ}
+\stip{Déconstruire la position.}
 
 \author{Ceriani}
 \year{1943}
-\comment{``La Donna è mobile?… Eppur si muove!''}
+\comment{La Donna è mobile?… Eppur si muove!}
 \fen{2b1q1NR/1ppppKbr/5ppp///P1P/RP1P/1kB}
 \stip{Premier coup de la dame noire ?}
 \sol{%
 La dame noire est issue de la promotion en a1 du pion noir a7
 et son premier coup fut a1-a2, la dame noire originelle n'ayant pas
 bougé, capturée en d8 par un cavalier blanc.\par\noindent
-Rétro-jeu : 1... Qd8xQe8 2.Qf8-e8 Kc2-b1 3.Qe8-f8 Bf8xNg7 4.Nf5-g7 g7-g6 ...}
+Rétro-jeu : 1... Qd8:Qe8 2.Qf8 Kc2 3.Qe8 Bf8:Ng7 4.Nf5 g7 ...}
 
 \author{Ceriani}
 \year{1961}
-\fen{7n/1p3p1p/4pPb/5p//1PPPP1PP/RprnK1kB/N1bRQNqr}
-\stip{Histoire de la tour a2 ?}
+\fen{QNk1R1Rn/nNP1Kprp/B1p3p/1PP/1p2P1P/4p1P/4PP1b/6B}
+\stip{Déconstruire la position.}
 
-\author{Gurevich}
-\year{1952}
-\fen{1K3kB//6p/7R//4b//6n}
-\stip{=}
-
-\author{Kasparian}
-\year{1948}
-\fen{2k/pNpn/p/2P/7b/1K/P5B}
-\stip{+}
+\author{Dulbergs}
+\year{1972}
+\fen{1B3N/5p1B/2K2pn/5krb/4p1p/4P1P/2P1PP}
+\stip{\#22}
 
 \author{Kasparian}
 \year{1949}
 \fen{5b/p4B/5B/1bN//P3r/4k1K}
 \stip{=}
+\sol{%
+Danse répétée de huit pièces…\par\noindent
+1.Bh5+ Ke1 2.Bh4+ Kd2 3.Bg5 Bxc5 4.Kf2 Kd3 5.Bg6+ Re4+ 6.Kf3 Bc6
+7.a4! Kd4 8.Bf6+ Re5+ 9.Kf4 Bd6 10.a5! Kd5 11.Bf7+ Re6+ 12.Kf5 Bd7
+13.a6!}
 
 \author{Korolkov}
 \year{1951}
 \fen{2b4k//5Pr/5N////K1B}
 \stip{+}
+\sol{%
+1.f7 Ra6+ 2.Ba3! Rxa3+ 3.Kb2 Ra2+ 4.Kc1! Ra1+ 5.Kd2 Ra2+ 6.Ke3 Ra3+
+7.Kf4 Ra4+ 8.Kg5 Rg4+ 9.Kh6! Rg8 10.Ne7 Be6 11.fxg8Q+! Bxg8 12.Ng6\#}
 
 \author{Kricheli}
 \year{1975}
 \fen{5B/rb5n/5pr/7p/1P/k1P1R/pN/N1K2n}
 \stip{\#17}
-
-\author{Lewandowski}
-\year{1986}
-\fen{6Q/q2r/4r/7B/2N1b//2P3N/4K1k}
-\stip{=}
-
-\author{Loshinsky}
-\year{1962}
-\fen{4KR/2N/2p1P/1pB1k1p/1p1R/nb/5p/5N}
-\stip{\#3}
-
-\author{Loshinsky}
-\year{1974}
-\fen{1Q4K/4pp/1p2R/rr2P1N/2bPBkpB/2N2p/3P}
-\stip{\#3}
 
 \author{Loyd}
 \year{1903}
@@ -81,24 +88,53 @@ Rétro-jeu : 1... Qd8xQe8 2.Qf8-e8 Kc2-b1 3.Qe8-f8 Bf8xNg7 4.Nf5-g7 g7-g6 ...}
 \year{1983}
 \fen{n4K/b1pprppp/1p2p/2p/N1P3P/BkP1P/1P2PPP/3N1BR}
 \stip{=}
+\sol{%
+Au minimum 75 coups sans prise ou mouvement de pion sont nécessaires
+pour débloquer la position par h3:Bg4 !}
 
 \author{Volet}
 \year{1994}
 \fen{rRKBqb/kp2pPp/1Rp/1p5P//pP4P/b1PPPP/1B}
 \stip{\#2}
 
-\author{Volet}
-\year{1980}
-\fen{5KQN/nprqrRBN/p1pppRBb/5ppp//7k/4n1b/}
-\stip{Cases et ordre des captures ?}
-
-\author{Yarosh}
+\author{Volobuev}
 \year{1983}
-\fen{Bq1B1K/3PpN/P3Pp/P1p2P/2Pk1b1R/1p/pN1P1P/QR}
-\stip{\#4}
+\fen{/p/1P/Bp2P/qR1P1P/rPkppp1n/Q1pRPP1P/1BNrn2K}
+\stip{\#1}
+
+\author{Vuk\v cevi\'c}
+\year{1980}
+\fen{2B/K4N/p2p2p/3p2Bk/Pp1N/r1Pp2b/bp4P/2n3n}
+\stip{\#13}
 
 \author{Wassong}
 \year{1994}
 \fen{1b5B/2pp2p/N1p1p/2K/PP3p/QPk1P/R1PNrP/nRqrB}
 \stip{\#1}
+\sol{%
+1.Ne4\# ou 1... Ba7\# ?\par\noindent
+La cage ne peut être ouverte que par b7:c6, wKa5, a2:b3, bKc4,
+N\char`~d2.
+Les quatre captures blanches possibles sont alors b4:c3:d2, et le
+croisement des pions a4 et b3.
+Le pion a noir s'est donc promu et il faut ramener un fou noir en c8
+avant b7:c6, ce qui nécessite le rétro-jeu Nb8 et Ba7, et donc un écran
+en b6.
+Juste avant a2-a1N, la configuration doit être bQa3, wRb2, wRb1 et wQc1.
+On ne dispose que de trois tempi noirs (pion f4) et de six tempi blancs
+(jeu sur la colonne h).\par\noindent
+Rétro-jeu : 1... Qb2 2.Rc1 Qb1 3.Rb2 Qa2 4.Rb1-b2 Qb2 5.Qa2 Qa3
+6.Rb2 f5 7.Qb1 Qa2 8.h7-h8B Qa3 9.Ra2 Qb2 10.Ra3 Qa2 11.h6 Qb2 12.Qa2 Qb1
+13.h5 Qb2 14.Rb1 Qc1 15.Rb2 Qb1 16.h4 Qc1 17.Qb1 f6 18.Ra2-b2 Qb2
+19.Qc1 Qb1 20.Rb2 Qa2 21.Rb1 Qb2 22.Ra2 Qa3 23.Rb2-a2 a2-a1N
+24.Ra1 f7 25.Rb1-b2 Qb2 26.h3 a3 27.a2:Bb3 Bc4 28.b3:Na4 Nb6+
+29.h2 Ba7 30.Nb8 ...\par\noindent
+Comme il n'y a aucun autre moyen d'ouvrir la cage sans utiliser
+plus de tempi, la réponse au problème est 1.Ne4\# et les 51 derniers
+coups simples sont entièrement déterminés !}
+
+\author{Yarosh}
+\year{1983}
+\fen{Bq1B1K/3PpN/P3Pp/P1p2P/2Pk1b1R/1p/pN1P1P/QR}
+\stip{\#4}
 
