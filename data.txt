@@ -102,7 +102,7 @@ pour débloquer la position par h3:Bg4 !}
 \fen{/p/1P/Bp2P/qR1P1P/rPkppp1n/Q1pRPP1P/1BNrn2K}
 \stip{\#1}
 
-\author{Vuk\v cevi\'c}
+\author{Vukčević}
 \year{1980}
 \fen{2B/K4N/p2p2p/3p2Bk/Pp1N/r1Pp2b/bp4P/2n3n}
 \stip{\#13}
