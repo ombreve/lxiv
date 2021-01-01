@@ -90,7 +90,7 @@ Danse répétée de huit pièces…\par\noindent
 \stip{=}
 \sol{%
 Au minimum 75 coups sans prise ou mouvement de pion sont nécessaires
-pour débloquer la position par h3:Bg4 !}
+avant de débloquer la position par h3:Bg4, bBc8 et b6 !}
 
 \author{Volet}
 \year{1994}
