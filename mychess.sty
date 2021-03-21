@@ -5,12 +5,8 @@
 % Simplify programming by ignoring white spaces and set our private
 % delimitors to alignment tab to catch errors more easily.
 % If you want a true white space, use ~.
-\catcode`\ =9
-\catcode`\^^M=9
-\catcode`\^^I=9
-\catcode`\;=4
-\catcode`\:=4
-\catcode`\~=10
+\catcode9=9 \catcode13=9 \catcode32=9 \catcode`\~=10
+\catcode`\;=4 \catcode`\:=4 \relax
 
 % A simple for loop
 \newcommand \FOR[5][1]
@@ -231,10 +227,6 @@
 }
 
 % Restore catcodes
-\catcode`\ =10
-\catcode`\^^M=10
-\catcode`\^^I=5
-\catcode`\;=12
-\catcode`\:=12
-\catcode`\~=13
+\catcode9=10 \catcode13=5 \catcode32=10 \catcode`\~=13
+\catcode`\;=12 \catcode`\:=12
 
